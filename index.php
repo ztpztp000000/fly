@@ -12,8 +12,11 @@ if(!file_exists(dirname(__FILE__).'/data/common.inc.php'))
     exit();
 }
 
-setcookie("pid", $_GET['tid'], time()+3600);
-
+if (isset($_GET['tid'])) {
+    setCookie("pid", $_GET['tid'], time() + 3600);
+} else {
+    setCookie("pid", 0, time() + 3600);
+}
 
 //自动生成HTML版
 if(isset($_GET['upcache']) || !file_exists('index.html'))

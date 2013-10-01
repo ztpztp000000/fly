@@ -1,0 +1,17 @@
+127.0.0.1||/member/||SELECT 'username' FROM `dede_member` WHERE 'mid' in(SELECT 'mid' FROM `dede_member_spread` WHERE 'pid'='1')||sub select detect
+127.0.0.1||/member/||SELECT `username` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `username` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `username` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `username` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='1')||sub select detect
+127.0.0.1||/member/index.php||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='10')||sub select detect
+127.0.0.1||/member/index.php||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='10')||sub select detect
+127.0.0.1||/member/index.php||SELECT `uname` FROM `dede_member` WHERE 'mid' in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='8')||sub select detect
+127.0.0.1||/member/index.php||SELECT `uname` FROM `dede_member` WHERE `mid` in (SELECT `mid` FROM `dede_member_spread` WHERE `pid`='8')||sub select detect

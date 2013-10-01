@@ -54,10 +54,19 @@ if($uid=='')
 
         /** 调用访客记录 **/
         $_vars['mid'] = $cfg_ml->M_ID;
-        
+
         if(empty($cfg_ml->fields['face']))
         {
             $cfg_ml->fields['face']=($cfg_ml->fields['sex']=='女')? 'templets/images/dfgirl.png' : 'templets/images/dfboy.png';
+        }
+
+        //我的推广
+        $sql ="SELECT sp.mid,mb.uname FROM `#@__member_spread` sp LEFT JOIN `#@__member` mb ON sp.mid=mb.mid WHERE sp.pid='".$cfg_ml->M_ID."'";
+        $myspread = array();
+        $dsql->SetQuery($sql);
+        $dsql->Execute();
+        while ($row = $dsql->GetArray()) {
+            $myspread[] = $row;
         }
 
         /** 我的收藏 **/
@@ -75,7 +84,9 @@ if($uid=='')
         $dsql->Execute();
         while ($row = $dsql->GetArray()) {
             $newfriends[] = $row;
+          
         }
+
 
         /** 好友记录 **/
         $sql = "SELECT F.*,M.face,M.sex FROM `#@__member` AS M LEFT JOIN #@__member_friends AS F ON F.fid=M.mid WHERE F.mid='{$cfg_ml->M_ID}' ORDER BY F.addtime desc LIMIT 6";
