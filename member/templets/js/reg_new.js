@@ -14,43 +14,43 @@ $(document).ready(function()
 	//checkSubmit
 	$('#regUser').submit(function ()
 	{
-		if(!$('#agree').get(0).checked) {
+		if(!$('#reg_form #agree').get(0).checked) {
 			alert("你必须同意注册协议！");
 			return false;
 		}
-		if($('#txtUsername').val()==""){
-			$('#txtUsername').focus();
+		if($('#reg_form #txtUsername').val()==""){
+			$('#reg_form #txtUsername').focus();
 			alert("用户名不能为空！");
 			return false;
 		}
-		if($('#txtPassword').val()=="")
+		if($('#reg_form #txtPassword').val()=="")
 		{
-			$('#txtPassword').focus();
+			$('#reg_form #txtPassword').focus();
 			alert("登陆密码不能为空！");
 			return false;
 		}
-		if($('#userpwdok').val()!=$('#txtPassword').val())
+		if($('#reg_form #userpwdok').val()!=$('#txtPassword').val())
 		{
-			$('#userpwdok').focus();
+			$('#reg_form #userpwdok').focus();
 			alert("两次密码不一致！");
 			return false;
 		}
-		if($('#uname').val()=="")
+		if($('#reg_form #uname').val()=="")
 		{
-			$('#uname').focus();
+			$('#reg_form #uname').focus();
 			alert("用户昵称不能为空！");
 			return false;
 		}
-		if($('#vdcode').val()=="")
+		if($('#reg_form #vdcode').val()=="")
 		{
-			$('#vdcode').focus();
+			$('#reg_form #vdcode').focus();
 			alert("验证码不能为空！");
 			return false;
 		}
 	})
 	
 	//AJAX changChickValue
-	$("#txtUsername").change( function() {
+	$("#reg_form #txtUsername").change( function() {
 		$.ajax({type: reMethod,url: "index_do.php",
 		data: "dopost=checkuser&fmdo=user&cktype=1&uid="+$("#txtUsername").val(),
 		dataType: 'html',
@@ -66,7 +66,7 @@ $(document).ready(function()
 	});
 	*/
 	
-	$("#email").change( function() {
+	$("#reg_form #email").change( function() {
 		var sEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 		if(!sEmail.exec($("#email").val()))
 		{
@@ -80,41 +80,41 @@ $(document).ready(function()
 		}
 	});	
 	
-	$('#txtPassword').change( function(){
-		if($('#txtPassword').val().length < pwdmin)
+	$('#reg_form #txtPassword').change( function(){
+		if($('#reg_form #txtPassword').val().length < pwdmin)
 		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
 		}
-		else if($('#userpwdok').val()!=$('txtPassword').val())
+		else if($('#reg_form #userpwdok').val() != $('#reg_form #txtPassword').val())
 		{
-			$('#_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
 		}
-		else if($('#userpwdok').val().length < pwdmin)
+		else if($('#reg_form #userpwdok').val().length < pwdmin)
 		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
 		}
 		else
 		{
-			$('#_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
 		}
 	});
 	
-	$('#userpwdok').change( function(){
-		if($('#txtPassword').val().length < pwdmin)
+	$('#reg_form #userpwdok').change( function(){
+		if($('#reg_form #txtPassword').val().length < pwdmin)
 		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
 		}
-		else if($('#userpwdok').val()=='')
+		else if($('#reg_form #userpwdok').val()=='')
 		{
-			$('#_userpwdok').html("<b>请填写确认密码</b>");
+			$('#reg_form #_userpwdok').html("<b>请填写确认密码</b>");
 		}
-		else if($('#userpwdok').val()!=$('#txtPassword').val())
+		else if($('#reg_form #userpwdok').val()!=$('#txtPassword').val())
 		{
-			$('#_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
 		}
 		else
 		{
-			$('#_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
+			$('#reg_form #_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
 		}
 	});
 	

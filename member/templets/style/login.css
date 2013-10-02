@@ -43,7 +43,6 @@ border-style: none;
 	color: #679c0a;
 }
 .login {
-	height:300px;
 }
 .bor {
 	width: 960px;
@@ -58,19 +57,23 @@ border-style: none;
 	height: 44px;
 	width: 404px;
 	line-height: 30px;
-	padding-left: 45px;
 	margin-top: 20px;
 	margin-left: 35px;
 }
 .login .main h3 span {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	color:#FFF;
+	cursor: pointer;
 }
 .login .main h3 em {
 	margin-left: 95px;
 }
-.login .main h3 em a {
-	color:#FFF;
+.login .main h3 a {
+
 }
-.login .main h3 em a:hover {
+.login .main h3 a:hover {
 	text-decoration:none;
 }
 .login .main li {
@@ -117,9 +120,7 @@ border-style: none;
 .login_from3{
 	width:210px;
 }
-.main {
-	width: 440px;
-}
+.main {}
 .login.bor .main.fLeft form ul {
 	margin-top: 5px;
 }

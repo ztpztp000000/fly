@@ -36,6 +36,7 @@ if($step == 1)
     if($dopost=='regbase')
     {
         $svali = GetCkVdValue();
+
         if(preg_match("/1/", $safe_gdopen)){
             if(strtolower($vdcode)!=$svali || $svali=='')
             {
