@@ -1,0 +1,46 @@
+<?php
+$z[0]=Array("global","",233,261);
+$z[0][4]['name']="cfg_soft_lang";
+$z[1]=Array("field","",273,292);
+$z[1][4]['name']="title";
+$z[2]=Array("global","",293,319);
+$z[2][4]['name']="cfg_webname";
+$z[3]=Array("field","",359,388);
+$z[3][4]['name']="keywords";
+$z[4]=Array("field","",427,485);
+$z[4][4]['name']="description";
+$z[4][4]['function']="html2text(@me)";
+$z[5]=Array("global","",502,534);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("include","",638,673);
+$z[6][4]['filename']="head.htm";
+$z[7]=Array("field","",828,857);
+$z[7][4]['name']="position";
+$z[8]=Array("infolink","\n<table id='dedeinfolink'>\n<tr>\n	<td colspan='3' class='iftitle'>\n		信息附加条件：\n	</td>\n</tr>\n<tr>\n	<td width='50'>&nbsp;地 区：</td>\n	<td align='center' nowrap='yes'>\n		<div>[field:linkallplace/]</div>\n	</td>\n	<td>\n  	[field:nativeplace /]&nbsp;\n	</td>\n</tr>\n<tr><td colspan='3' class='spline'>&nbsp;</td></tr>\n<tr>\n	<td>&nbsp;类 型：</td>\n  <td align='center' nowrap='yes'>\n  	<div>[field:linkalltype/]</div>\n  </td>\n  <td>\n  	[field:infotype /]&nbsp;\n  </td>\n</tr>\n<tr><td colspan='3' class='spline'>&nbsp;</td></tr>\n</table>\n",885,1460);
+$z[9]=Array("list","\n            <li><a href=\"[field:arcurl/]\" class=\"title\">[field:title/]</a><span class=\"date\">[field:pubdate function=\"GetDateTimeMK(@me)\"/]</span></li>\n            ",1532,1734);
+$z[9][4]['pagesize']="20";
+$z[10]=Array("pagelist","",1834,1905);
+$z[10][4]['listitem']="info,index,end,pre,next,pageno";
+$z[10][4]['listsize']="5";
+$z[11]=Array("channel","\n		<li><a href='[field:typeurl/]'>[field:typename/]</a></li>",2156,2334);
+$z[11][4]['type']="son";
+$z[11][4]['currentstyle']="<li><a href='~typelink~' class='thisclass'>~typename~</a></li>";
+$z[12]=Array("myad","",2434,2465);
+$z[12][4]['name']="listRtPicAD";
+$z[13]=Array("infoguide","\n                    <form name='infoguide' method='get' action='/plus/list.php'>\n                    [field:nativeplace /]\n                    [field:infotype /]\n                    <input type='hidden' name='tid' value='[field:typeid /]' />\n                    <input type='hidden' name='channelid' value='-8' />\n                    <span class='infosearchtxt'>关键字：</span><span><input type='text' name='keyword' value='' class=\"ipt-txt\" /></span>\n                    <input type='submit' value='搜索信息' class=\"btn-2\" style='cursor:pointer' />\n                    &nbsp;\n                    <input type='button' value='发布信息' class=\"btn-2\" \n                    onclick=\"location='/member/archives_sg_add.php?channelid=-8';\" style='cursor:pointer' />\n                    </form>\n                ",2593,3442);
+$z[14]=Array("arclistsg","\n                        <li><span>[field:typename/]</span><a href=\"[field:arcurl/]\">[field:title/]</a></li>\n                    ",3633,3831);
+$z[14][4]['orderby']="id";
+$z[14][4]['titlelen']="60";
+$z[14][4]['row']="10";
+$z[15]=Array("arclistsg","\n                    	<li><span>[field:typename/]</span><a href=\"[field:arcurl/]\">[field:title/]</a></li>\n                    ",4045,4240);
+$z[15][4]['sort']="click";
+$z[15][4]['titlelen']="30";
+$z[15][4]['row']="10";
+$z[16]=Array("myad","",4349,4381);
+$z[16][4]['name']="listRtPicAD2";
+$z[17]=Array("myad","",4477,4510);
+$z[17][4]['name']="innerfooterAD";
+$z[18]=Array("include","",4517,4554);
+$z[18][4]['filename']="footer.htm";
+
+?>

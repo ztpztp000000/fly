@@ -12,7 +12,6 @@
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once(DEDEINC."/channelunit.class.php");
 if(!isset($open)) $open = 0;
-
 //读取链接列表
 if($open==0)
 {
@@ -161,7 +160,7 @@ else if($open==2)
         exit();
     }
     extract($arcRow, EXTR_SKIP);
-
+    
     //处理需要下载权限的软件
     if($needRank>0 || $needMoney>0)
     {
@@ -171,7 +170,6 @@ else if($open==2)
         $arctitle = $title;
         $arcLinktitle = "<a href=\"{$arcurl}\"><u>".$arctitle."</u></a>";
         $pubdate = GetDateTimeMk($pubdate);
-    
         //会员级别不足
         if(($needRank>1 && $cfg_ml->M_Rank < $needRank && $mid != $cfg_ml->M_ID))
         {
