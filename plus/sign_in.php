@@ -27,5 +27,6 @@ if ($today == $lastSigintime) {
 $addMoney = 1;
 $dsql->ExecuteNoneQuery("UPDATE `#@__member` SET money = money + $addMoney WHERE mid='".$cfg_ml->M_ID."'");
 $dsql->ExecuteNoneQuery("INSERT INTO `#@__member_signin` (`mid`, `signintime`) VALUES (".$cfg_ml->M_ID.", ".time().")");
+$hasMoney = $cfg_ml->$cfg_ml->M_Money + $addMoney;
 include_once(DEDETEMPLATE.'/plus/sign_in.htm');
 exit();

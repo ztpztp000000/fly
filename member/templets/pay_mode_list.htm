@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>充值 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<style type="text/css">
+  .game-title {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 1em;
+  }
+  .mode-list li {
+    margin-bottom: 1em;
+    height: 82px;
+    line-height: 82px;
+    background-color: #f2f2f2;
+  }
+
+  .mode-list li .mode_name, .mode-list li .mode_logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 120px;
+    height: 82px;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  .mode-list li .mode_name {
+    background-color: #0B9663;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .mode-list li .mode_desc {
+    display: inline-block;
+    vertical-align: middle;
+    height: 82px;
+    width: 280px;
+    margin-right: 10px;
+  }
+
+  .mode-list li .paybtn {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #008BC7;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em;
+  }
+
+  .mode-list li .paybtn:hover {
+    background-color: #ff9900;
+  }
+
+</style>
+</head>
+<body>
+<div id="main">
+  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
+  <div id="content" class="w960 clearfix">
+    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
+    <div id="mcpmain">
+      <div id="appTab">
+        <ul>
+           <li><a href="game_pay.php">充值</a></li>
+        </ul>
+      </div>
+      <div id="mainCp">
+        <h2 class="game-title">选择充值方式：</h2>
+        <ul class="mode-list">
+          <?php
+            $html = '';
+            foreach ($payModeList as $key => $value) {
+              $html .= '<li>
+                <span class="mode_name">'.$value['name'].'</span>
+                <img class="mode_logo" src="'.$value['logo'].'" alt="'.$value['name'].'" />
+                <span class="mode_desc">'.$value['desc'].'</span>
+                <a class="paybtn" href="game_pay.php?game_id='.$game_id.'&pay_mode='.$value['id'].'">立即支付</a>
+              </li>';
+            }
+            echo $html;
+          ?>
+        </ul>
+        <div style="clear: both;"></div> 
+      </div>
+<!--主操作区域 -->
+    </div>
+  </div>
+<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</div>
+</body>
+</html>

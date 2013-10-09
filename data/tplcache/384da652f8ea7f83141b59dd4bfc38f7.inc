@@ -1,0 +1,3 @@
+<li><span>[field:pubdate function="GetDateTimeMK(@me)"/]</span> [field:typelink function='str_replace("a ","a class=ulink ",@me)'/]<a class="f14px" href="[field:arcurl/]" target="_blank">[field:title/]</a> 人气:[field:click/]
+      <div class="intro" ><a href="[field:arcurl/]" target="_blank" alt="[field:title/]">[field:litpic function="CkLitImageView(@me,120)"/] </a>[field:description/] <a class="cBlue" href="[field:arcurl/]" target="_blank">详细介绍...</a></div>
+      <div class="clear"></div></li>

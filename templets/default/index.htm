@@ -1,76 +1,221 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
-<title>{dede:global.cfg_webname/}</title>
-<meta name="description" content="{dede:global.cfg_description/}" />
-<meta name="keywords" content="{dede:global.cfg_keywords/}" />
-<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
-<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
-<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmspath/}/images/js/j.js" ></script>
-<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/pic_scroll.js"></script>
-<script language="javascript" type="text/javascript">
-<!--
-	$(function(){
-		$("a[_for]").mouseover(function(){
-			$(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
-			$(this).addClass("thisclass").blur();
-			$("#"+$(this).attr("_for")).show();
-		});
-		$("a[_for=uc_member]").mouseover();
-		$("a[_for=flink_1]").mouseover();
-	});
+<title>{dede:global name='cfg_webname'/}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<link href="{dede:field name='templeturl'/}/img_v4/all.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="{dede:global name='cfg_cmspath'/}/include/dedeajax2.js"></script>
+<script language="JavaScript" src="{dede:global name='cfg_cmspath'/}/include/js/jquery/jquery.js"></script>
+<script language="JavaScript" src="{dede:field name='templeturl'/}/default/js/sohuflash_1.js"></script>
+<script language="JavaScript">
+function CheckLogin(){
+var taget_obj = document.getElementById('_loginform');
+myajax = new DedeAjax(taget_obj,false,false,"","","");
+myajax.SendGet("{dede:global name="cfg_memberurl"/}/ajax_loginsta.php");
+}
+
 	
-	function CheckLogin(){
-	  var taget_obj = document.getElementById('_userlogin');
-	  myajax = new DedeAjax(taget_obj,false,false,'','','');
-	  myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
-	  DedeXHTTP = null;
-	}
--->
 </script>
+
+<script language="JavaScript">
+function show(){
+	document.getElementById("login").style.display="";
+	document.getElementById("regin").style.display="none";
+	
+	}
+	function show1(){
+	document.getElementById("login").style.display="none";
+	document.getElementById("regin").style.display="";
+	
+	}
+</script>
+<style type="text/css">
+	.userface {
+		float: left;
+	}
+	.welcome, .mylink {
+		padding-left: 62px;
+	}
+	#login .mylink {
+		margin: 0.5em 0 1em;
+	}
+	#login .mylink ul {
+		padding: 0;
+	}
+
+	#login .mylink ul li {
+		display: inline-block;
+		padding-right: 10px;
+	}
+	.uclink {
+		margin-bottom: 1em;
+	}
+  .hot-servers li {
+    line-height: 1.5em;
+    padding: 0.5em 0;
+    font-size: 12px;
+    border-bottom: 1px dashed #dddddd;
+  }
+  .hot-servers li a, .hot-servers li span {
+    display: inline-block;
+  }
+  .hot-servers li a {
+    width: 6em;
+    overflow: hidden;
+    color: #0c4e9c;
+    font-weight: bold;
+  }
+
+  .hot-servers li .open-time {
+    padding-right: 5px;
+    color: #ff0000;
+  }
+  .hot-servers li .server-location {
+    color: #1379c5;
+  }
+  .f5 li {
+   
+    list-style-type:none;width:70px;
+    float:left;
+  }
+  .clear{
+    clear:both;
+  }
+
+</style>
 </head>
-<body class="index">
-{dede:include filename="head.htm"/}
-<!-- /header -->
-<div class="w960 center clear mt1">
- <div class="pleft">
-  <div class="bignews">
-   <!--头条-->
-   <div class="onenews"> {dede:arclist flag='h' limit='0,1' infolen='230'}
-    <h2><a href="[field:arcurl/]">[field:title/]</a></h2>
-    <p>[field:info/]...<a href="[field:arcurl/]">[查看全文]</a></p>
-    {/dede:arclist} </div>
-   <!-- /onenews -->
-   <div class="d1"> {dede:arclist flag='h' limit='1,4'}
-    <div class='d1arc'><a href="[field:arcurl/]">[field:title/]</a></div>
-    {/dede:arclist} </div>
-   <!--/头条-->
-   <div class='newarticle'>最新文章</div>
-   <ul class="c2 ico1">
-    <!--最新文档-->
-    {dede:arclist row=14 titlelen=32 noflag='h'}
-    <li><a href="[field:arcurl/]">[field:title/]</a></li>
-    {/dede:arclist}
-    <!--//最新文档-->
-   </ul>
+
+<body>
+
+<div class="navigation">
+  <div class="nav_top">
+      <div class="logoLink"><a href="http://www.dedecms.com/"><img src="{dede:field name='templeturl'/}/img_v4/blank_002.gif" alt="六房间" border="0" vspace="0"/></a></div>
+  <div class="top">
+    <ul>
+		 <li><a href="{dede:field name='phpurl'/}/heightsearch.php">微博登陆（高级搜索）</a></li>
+        <li><a href="{dede:field name='phpurl'/}/rssmap.html">QQ登录（RSS订阅）</a></li>
+        <li><a href="{dede:field name='memberurl'/}/article_add.php" target="_blank" class="cGreen">发布资源</a></li>
+        <li><a href="javascript:JSAddFavorite();">加入收藏</a></li>
+       
+    </ul>
   </div>
-  <!-- /bignews -->
-  <div class="flashnews">
-   <!-- size: 280px * 192px -->
-   <script language='javascript'>
+  <div id="search">
+  <form action="{dede:field name='phpurl'/}/search.php" name="formsearch">
+      <input type="hidden" name="kwtype" value="0">
+      <input name="keyword" type="text" id="keyword" size="20" class="search_input" style="width:358px;">
+	  <input name="imageField2" type="image" src="{dede:field name='templeturl'/}/img_v4/search.gif" alt="搜索" class="search_img" width="80" height="21" border="0">
+      </form>
+  </div>
+  </div>
+
+  <div id="nav_menu">
+    <div class="nav_a"></div>
+    <div class="nav_b">
+      <ul>
+          <li class="l"><a href="http://www.777fly.com/">首页</a></li>
+          {dede:channel type='top' row='8'}
+          <li class="l"><a href='[field:typelink/]'>[field:typename/]</a></li>
+          {/dede:channel}
+		  <li><a href="{dede:field name='memberurl'/}" target="_blank">会员中心</a></li>
+          <li><a href="{dede:field name='specurl'}{/dede:field}/index.php">专题</a></li>
+     </ul>
+  </div>
+  </div><!-- @ End nav_menu -->
+</div><!-- @ End : Navigation -->
+
+<!-- @ Begin : 首页第一屏 -->
+<div class="content">
+
+<div class="side1 left">
+  <div class="box" style="border: 1px solid rgb(255, 255, 255);">
+  <div class="north"><div class="east"><div class="south"><div class="west"><div class="northeast"><div class="southeast"><div class="southwest"><div class="northwest">
+  <div class="caption">
+	  <input type="button" onClick="show();" class="button blue" value="老用户登录" />
+	  <input type="button" onClick="show1();" class="button blue" value="新用户注册" />
+  </div> 
+  <div id="login">
+  <span id="_loginform">
+  <form name='form1' method='POST' action='{dede:field name='memberurl'/}/index_do.php'>
+    <input type="hidden" name="fmdo" value="login">
+    <input type="hidden" name="dopost" value="login">
+    <input type="hidden" name="gourl" value="">
+    <ul>
+    <li>用户名：<input name="userid" type="text" id="userid" class="login_input" onfocus="this.className='login_over'" onblur="this.className='login_input'" style="width:120px;"></li>
+	
+    <li>密　码：<input type="password" name="pwd" class="login_input" onfocus="this.className='login_over'" onblur="this.className='login_input'" style="width:120px;"></li>
+    
+     <li> <span>验证码：&nbsp;&nbsp;</span>
+          <input id="vdcode" class="text login_from3" type="text" style="width: 50px; text-transform: uppercase;" name="vdcode"/>
+          <img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>
+      </li>
+       <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;看不清？</span>><a href="#" onclick="changeAuthCode();">点击更换</a> </li>
+    <p><input name="imageField" type="image" src="{dede:field name='templeturl'/}/img_v4/loginbt.gif" alt="登录" width="80" height="36" border="0" style=" margin-right:20px"> 
+    </ul>
+  </form>
+  </span>
+  <script language="JavaScript">CheckLogin();</script>
+  </div>
+
+
+
+
+  <div id="regin" style="display: none">
+  <span id="_reginform">
+  <form name='form2' method='POST' id='regUser' action='{dede:field name='memberurl'/}/reg_new.php'>
+    <input type="hidden" name="dopost" value="regbase">
+    <input type="hidden" value="1" name="step"/>
+    <input type="hidden" value="个人" name="mtype"/>
+   
+    <ul>
+    <li>用   户  名 ：<input name="userid" type="text" id="txtUsername" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" style="width:100px;"></li>
+	
+    <li> 密  _  码  ： <input type="password" name="userpwd" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" id="txtPassword" style="width:100px;"></li>
+	<li>确认密码：<input type="password" name="userpwdok" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" id="userpwdok" style="width:100px;"></li>
+	<li><span>电子邮箱:</span>
+            <input type="text" class="intxt w200" id="email" name="email" style="width:100px;"/>
+    </li>
+	<li><span>验证码：</span>
+            <input type="text" class="intxt w200" style="width: 50px; text-transform: uppercase;" id="vdcode" name="vdcode"/><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>
+		<table border="0">
+			  <tr>
+			  <td><input name="imageField" type="image" src="{dede:field name='templeturl'/}/img_v4/regbt.gif" alt="登录" width="100" height="45" border="0" style=" margin-right:35px; margin-top:3px"></td>
+			  
+			  <td><input name="imageField" type="image" src="{dede:field name='templeturl'/}/img_v4/xinlangbt.gif" alt="登录" width="30" height="25" border="0" style=" margin-right:0px; margin-top:15px"></td>
+			  <td><input name="imageField" type="image" src="{dede:field name='templeturl'/}/img_v4/qqbt.gif" alt="登录" width="30" height="25" border="0" style=" margin-right:0px; margin-top:15px"></td>
+			  </tr>
+		  </table>	
+    </ul>
+  </form>
+  </span>
+  <script language="JavaScript">CheckLogin();</script>
+  </div>
+  </div></div></div></div></div></div></div></div>   </div>
+  
+<div class="clear"></div></div><!-- @ End : Right  -->
+
+
+
+
+
+
+
+
+<div class="big_main right">
+  <div class="flash left">
+<script language='javascript'>
 linkarr = new Array();
 picarr = new Array();
 textarr = new Array();
-var swf_width=280;
-var swf_height=192;
+var swf_width=380;
+var swf_height=232;
 //文字颜色|文字位置|文字背景颜色|文字背景透明度|按键文字颜色|按键默认颜色|按键当前颜色|自动播放时间|图片过渡效果|是否显示按钮|打开方式
-var configtg='0xffffff|0|0x3FA61F|5|0xffffff|0xC5DDBC|0x000033|2|3|1|_blank';
+var configtg='0xffffff|4|0x3FA61F|5|0xffffff|0xC5DDBC|0x000033|2|3|1|_blank';
 var files = "";
 var links = "";
 var texts = "";
 //这里设置调用标记
-{dede:arclist flag='f' row='5'}
+{dede:arclist flag='f' row='8'}
 linkarr[[field:global.autoindex/]] = "[field:arcurl/]";
 picarr[[field:global.autoindex/]]  = "[field:litpic/]";
 textarr[[field:global.autoindex/]] = "[field:title function='html2text(@me)'/]";
@@ -94,179 +239,199 @@ document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link
 document.write('<embed src="{dede:global.cfg_templeturl /}/default/images/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+configtg+'&menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
 </script>
   </div>
-  <!-- /flashnews -->
-  <div class="latestnews">
-   <dl class="tbox light">
-    <dt class="light"><strong>特别推荐</strong></dt>
-    <dd class="light">
-     <ul class="d2 ico2">
-      {dede:arclist flag='a' row='6' orderby='pubdate'}
-      <li><span>[field:pubdate function="MyDate('m-d',@me)"/]</span><a href="[field:arcurl/]">[field:title/]</a></li>
-      {/dede:arclist}
-     </ul>
-    </dd>
-   </dl>
+  
+  
+  
+  
+  <div class="big right box">
+    {dede:artlist typeid="0" row="1" titlelen="42" infolen='50'}<!-- 特荐类  -->
+	<h2><a href="[field:filename /]" target="_blank">[field:title/]</a></h2>
+	<p>[field:info /]… </p>
+	{/dede:artlist}
+	<ol class="links f14px" style="line-height:140%;">
+			{dede:artlist typeid=0 row=8 titlelength=42}
+	        <li><span>[field:pubdate function='strftime("%m-%d",@me)'/]</span><a href="[field:filename /]" target="_blank">[field:title/]</a></li>
+	        {/dede:artlist}
+    </ol>
   </div>
-  <!-- /latestnews -->
-  <div class="picnews">
-   <dl class="tbox light">
-    <dt class='light'><strong>图文资讯</strong></dt>
-    <dd class='light'>
-     <div class="infiniteCarousel">
-      <div class="wrapper">
-       <ul id='imgscroll'>
-        {dede:arclist row=10 orderby=pubdate type='image.' imgwidth='143' imgheight='106'}
-        <li><a href="[field:arcurl/]">[field:image/]<span class="title">[field:title/]</span></a></li>
-        {/dede:arclist}
-       </ul>
-      </div>
-     </div>
-    </dd>
-   </dl>
+<div class="clear"></div></div><!-- @ End : left  -->
+
+
+
+
+
+
+
+
+  
+<div class="clear"></div></div><!-- @ End : 首页第一屏 -->
+
+<div class="ad960"><img src="{dede:field name='templeturl'/}/default_v4/111/960X60a.jpg" /></div>
+
+
+<!-- @ Begin : 首页第二屏 -->
+<div class="content">
+
+<div class="side left">
+  <div class="box title_bg" style="border: 1px solid rgb(255, 255, 255);">
+  <div class="north"><div class="east"><div class="south"><div class="west"><div class="northeast"><div class="southeast"><div class="southwest"><div class="northwest">
+  <div class="caption"><h4>推荐内容</h4></div><!-- 礼包领取 以前的推荐-->
+  <ol class="links_1">
+		    {dede:artlist typeid=0 row=14 type='commend' orderby='rand' titlelength=25}
+			<li><a href="[field:arcurl /]" target="_blank">[field:title /]</a></li>
+			{/dede:artlist}
+  </ol>
+  </div></div></div></div></div></div></div></div>   </div>
+  
+  <div class="box title_bg" style="border: 1px solid rgb(255, 255, 255);">
+  <div class="north"><div class="east"><div class="south"><div class="west"><div class="northeast"><div class="southeast"><div class="southwest"><div class="northwest">
+  <div class="caption"><h4>评论TOP10</h4></div>
+  <ol class="commnet_links">
+		    {dede:artlist typeid=0 row=10 orderby=postnum titlelength=30}
+			<li><a href="[field:arcurl /]" target="_blank">[field:title /]</a></li>
+			{/dede:artlist}
+  </ol>
+  </div></div></div></div></div></div></div></div>   </div>
+<div class="clear"></div></div><!-- @ End : Left  -->
+
+
+
+
+<div class="main left">
+  {dede:channelArtlist col=2 row=4}
+  <div class="channel box">
+      {dede:type}
+	  <div class="channel_tit">
+	      <div class="l"><h4><a href="[field:typelink /]" target="_blank">[field:typename /]</a></h4></div>
+		  <div class="r"><span><a href="[field:typelink /]" target="_blank"><img src="/templets/img_v4/more.gif" alt="更多" /></a></span></div>
+	  </div>
+	  {/dede:type}
+	  <div class="channel_img">
+	    {dede:arclist type='image' type='commend' typeid="0" row='1' att='0' imgwidth='52' imgheight='40' titlelen='20' infolen='30'}
+		<div class="p">[field:imglink /]</div>
+		<div class="t"><a href="[field:filename/]" target="_blank">[field:title/]</a><p>[field:info/]</p></div>
+		{/dede:arclist}
+	  <div class="clear"></div></div>
+	  <ol class="links_1">
+		      {dede:arclist row=10 att=0 titlelen=40 orderby=pubdate orderby=ID}
+			  <li><a href="[field:arcurl /]" target="_blank">[field:title /]</a></li>
+			  {/dede:arclist}
+	 </ol>
   </div>
-  <div id="leftAD1" style="margin:10px auto">{dede:myad name='indexLeftBanner'/}</div>
-  <!-- /picnews -->
-  <div class="listbox"> {dede:channelartlist}
-   <dl class="tbox">
-    <dt><strong><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></strong><span class="more"><a href="{dede:field name='typeurl'/}">更多...</a></span></dt>
-    <dd>
-     <ul class="d1 ico3">
-      {dede:arclist titlelen='60' row='8'}
-      <li><span>[field:pubdate function="MyDate('m-d',@me)"/]</span><a href="[field:arcurl /]">[field:title /]</a></li>
-      {/dede:arclist}
-     </ul>
-    </dd>
-   </dl>
-   {/dede:channelartlist} </div>
-  <!-- /listbox -->
- </div>
- <!-- /pleft -->
- <div class="pright">
-  <div class="usercenter">
-   <dl class="tbox light">
-    <dt class='light'> <strong>互动中心</strong> <span class="label"> <a href="#" _for="uc_digg">踩踩</a> <a href="#" _for="uc_comment">评论</a> <a href="#" _for="uc_member">会员</a> </span> </dt>
-    <dd id="loading"> 正在载入,请稍候... </dd>
-    <dd id="uc_digg">
-     <ul class="f1">
-      {dede:arclist orderby='scores' row='8' subday='30' titlelen='42'}
-      <li> <a href="[field:arcurl/]">[field:title/]</a> <span><small>点击:</small>[field:click/]</span> <span><small>评价:</small>[field:scores/]</span></li>
-      {/dede:arclist}
-     </ul>
-    </dd>
-    <!-- /uc_digg -->
-    <dd id="uc_comment">
-     <ul class="f2">
-      {dede:feedback row='5' titlelen='24' infolen='80'}
-      <li> <small><a href="#" class="username">[field:username function="(@me=='guest' ? '游客' : @me)"/]</a> 评论 <a href="[field:global.cfg_phpurl/]/feedback.php?aid=[field:aid/]" class="title">[field:title/]</a></small>
-       <p>[field:msg/]</p>
-      </li>
-      {/dede:feedback}
-     </ul>
-    </dd>
-    <!-- /uc_comment -->
-    <dd id="uc_member" >
-     <div id="_userlogin">
-      <div class="userlogin">
-       <form name="userlogin" action="{dede:global.cfg_memberurl/}/index_do.php" method="POST">
-        <input type="hidden" name="fmdo" value="login" />
-        <input type="hidden" name="dopost" value="login" />
-        <input type="hidden" name="keeptime" value="604800" />
-        <div class="fb"><span>用户名:</span>
-         <input type="text" name="userid" size="20" class="ipt-txt" />
-        </div>
-        <div class="fb"><span>密码:</span>
-         <input type="password" name="pwd" size="20" class="ipt-txt" />
-        </div>
-        {dede:php}
-        if(preg_match("#2#", $safe_gdopen))
-        {
-        echo '
-        <div class="fb"><span>验证码:</span>
-         <input type="text" name="vdcode" size="8" class="ipt-txt" />
-         <img id="vdimgck" align="absmiddle" onClick="this.src=this.src+\'?\'" style="cursor:pointer;margin-left:0px;text-transform:uppercase;" alt="看不清？点击更换" src="'.$cfg_cmspath.'/include/vdimgck.php"/></div>
-        ';
-        }
-        {/dede:php}
-        <div class="submit">
-         <button type="submit" class="btn-1">登录</button>
-         <a href="{dede:global.cfg_memberurl/}/index_do.php?fmdo=user&dopost=regnew" >注册帐号</a> <a href="{dede:global.cfg_memberurl/}/resetpassword.php">忘记密码?</a> </div>
-       </form>
-      </div>
-     </div>
-     <!-- /userlogin -->
-     <script language="javascript" type="text/javascript">CheckLogin();</script>
-     <div class="latestlogin"> <strong>最近登陆的会员</strong>
-      <ul class="e7">
-       {dede:memberlist row=6 signlen=30}
-       <li><a href="[field:spaceurl/]" target="_blank"><img src="[field:face/]" alt='[field:spacename/]' width="52" height="52" />[field:uname/]</a></li>
-       {/dede:memberlist}
-      </ul>
-     </div>
-     <!-- /latestlogin -->
-    </dd>
-    <!-- /uc_member -->
-   </dl>
+  {/dede:channelArtlist}
+  <div class="clear"></div></div><!-- @ End : Center  -->
+
+
+
+ 
+  <div class="side1 right" style=" background:#F3F9FC; border: 1px solid rgb(255, 255, 255);">
+  <div class="north"><div class="east"><div class="south"><div class="west"><div class="northeast"><div class="southeast"><div class="southwest"><div class="northwest">
+  <div class="caption"><h4>热门开服游戏</h4></div><!-- 跳转类 对应热门开服游戏-->
+  <ol class="hot-servers">
+      <!-- {dede:artlist typeid=0 row=16 att='j' orderby=click titlelength=33}
+	  <li><a href="[field:arcurl /]" target="_blank">[field:title /]</a></li>
+	  {/dede:artlist} -->
+    
+    {dede:php}
+      $html = '';
+      foreach ($serverList as $key => $value) {
+        $enterGameUrl = $cfg_cmspath.'/plus/game_enter.php?game_id='.$value['game_id'];
+        $html .= '<li><a href="'.$enterGameUrl.'" target="_blank" class="game-name">'.$value['game_name'].'</a><span class="open-time">'.$value['trunon_date'].'&nbsp;'.$value['trunon_hour'].'</span><span class="server-location">'.$value['name'].'</span></li>';
+      }
+      echo $html;
+    {/dede:php}
+  </ol>
+
+    <hr />
+    <br />
+    <hr />
+   <div id="flashcontent01";style=" width:260px; margin_bottom:5px auto 0; text-align:center;">
+  <script type="text/javascript">
+
+var pics='{dede:field name="templeturl"/}/default/images/01.jpg|{dede:field name="templeturl"/}/default/images/02.jpg|{dede:field name="templeturl"/}/default/images/03.jpg|{dede:field name="templeturl"/}/default/images/04.jpg|{dede:field name="templeturl"/}/default/images/05.jpg'; 
+
+var mylinks='http://down.admin5.com/|http://down.admin5.com/|http://down.admin5.com/|http://down.admin5.com/|http://down.admin5.com/';
+var texts='广告1|广告2|广告3|广告4|广告5';
+
+var sohuFlash2 = new sohuFlash("{dede:field name='templeturl'/}/default/yule.swf","sohuFlashID01","260","338","5","#ffffff");
+  sohuFlash2.addParam("quality", "high");
+          sohuFlash2.addParam("wmode", "opaque");
+          sohuFlash2.addParam("wmode", "transparent");
+  sohuFlash2.addParam("salign", "t");
+  sohuFlash2.addVariable("p",pics); 
+  sohuFlash2.addVariable("l",mylinks);
+  sohuFlash2.addVariable("icon",texts);
+  sohuFlash2.write("flashcontent01");
+
+</script>
   </div>
-  <!-- /usercenter -->
-  <div id="rightAD1" style="margin:10px auto">{dede:myad name='indexRightLitpic1'/}</div>
-  <div class="commend mt1">
-   <dl class="tbox light">
-    <dt class='light'><strong>推荐内容</strong></dt>
-    <dd class='light'>
-     <ul class="c1 ico2">
-      {dede:arclist flag='c' titlelen=42 row='16' tagid='dedecms' pagesize='8'}
-      <li class='dotline'><a href="[field:arcurl/]">[field:title/]</a></li>
-      {/dede:arclist}
-     </ul>
-    </dd>
-   </dl>
-  </div>
-  <!-- /commend -->
-  <div id="rightAD1" style="margin:10px auto">{dede:myad name='indexRightLitpic2'/}</div>
-  <div class="hot mt1">
-   <dl class="tbox light">
-    <dt class='light'><strong>本月热点</strong></dt>
-    <dd class='light'>
-     <ul class="c1 ico2">
-      {dede:arclist sort='hot' subday='30' titlelen=42 row=6}
-      <li class='dotline'><a href="[field:arcurl/]">[field:title/]</a></li>
-      {/dede:arclist}
-     </ul>
-    </dd>
-   </dl>
-  </div>
-  <div class="vote mt1">
-   <dl class="tbox light">
-    <dt class='light'><strong>投票调查</strong></dt>
-    <script language="javascript" src="{dede:global.cfg_cmsurl/}/data/vote/vote_1.js"></script>
-   </dl>
-  </div>
-  <!-- /vote -->
-  <div style="margin:10 auto">{dede:myad name='indexRtpicAd3'/}</div>
- </div>
- <!-- /pleft -->
-</div>
-<div class="flink w960 center clear">
- <dl class="tbox">
-  <dt> <strong>友情链接</strong>
-	<span class="linklabel">
-		{dede:flinktype type="dedecms"}
-			<a href="#" _for="flink_[field:id/]">[field:typename/]</a> 
-		{/dede:flinktype}
-	</span>
-	<span class="more"> <a href="plus/flink.php">所有链接</a> | <a href="plus/flink_add.php">申请加入</a> </span> </dt>
-  {dede:flinktype type="dedecms"}
-  <dd id="flink_[field:id/]">
-    <ul class="f5">
-		{dede:flink/}
+
+
+  <div class="clear"></div>
+  </div></div></div></div></div></div></div></div>   </div> 
+<!-- @ End : Right  -->
+
+<div class="clear"></div></div><!-- @ End : 首页第二屏 -->
+
+
+
+<div class="content" style=" border: 1px solid rgb(255, 255, 255);">
+  <div class="north_1"><div class="east_1"><div class="south_1"><div class="west_1"><div class="northeast_1"><div class="southeast_1"><div class="southwest_1"><div class="northwest_1">
+  <div class="caption"><h4>图片欣赏</h4></div>  
+  <ol class="index_img">
+      {dede:arclist type='image' typeid="0" row='12' att='0' imgwidth='120' imgheight='90' titlelength='19'}
+      <li>[field:imglink /]<h6><a href='[field:filename/]' target="_blank">[field:title/]</a></h6></li>
+	  {/dede:arclist}
+  </ol>
+<div class="clear"></div></div></div></div></div></div></div></div></div>   </div> 
+
+  <div class="youqing" style=" border: 1px solid rgb(255, 255, 255);">
+  <div class="north"><div class="east"><div class="south"><div class="west"><div class="northeast"><div class="southeast"><div class="southwest"><div class="northwest">
+  友情链接：
+     <ul class="f5"><li>
+    {dede:flink/}
+    </li>
+    <div class="clear"></div>
     </ul>
-  </dd>
-  {/dede:flinktype}
- </dl>
+  </div></div></div></div></div></div></div></div>   </div>
+
+
+
+
+<!-- @ Begin : Footer -->
+<div class="footer">
+<a href="#" title="关于我们">关于我们</a><a href="#" title="版权声明">版权声明</a><a href="#" title="广告服务">广告服务</a><a href="#" title="联系站长">联系站长</a><a href="#" title="网站地图">网站地图</a><span class="footer_end"><a href="javascript:JSAddFavorite();" title="加入收藏">加入收藏</a></span>
+<br /><br />
+Copyright &copy;2004-2007 777fly.COM All Rights Reserved.</div>
+<!-- @ End : Footer -->
+<script language="JavaScript" type="text/javascript">
+function JSAddFavorite()
+
+{
+
+        if ( window.sidebar && "object" == typeof( window.sidebar ) && "function" == typeof( window.sidebar.addPanel ) )
+
+        {
+
+                //  firefox
+
+                window.sidebar.addPanel( 'dedecms', 'http://www.dedecms.com/', '' );
+
+        }
+
+        else if ( document.all && "object" == typeof( window.external ) )
+
+        {
+
+                //  ie
+
+                window.external.addFavorite( 'http://www.dedecms.com/', 'dedecms' );
+
+        }
+
+}
+
+</script>
 </div>
-<!-- /flink -->
-<div id="footAD" style="margin:10px auto; width:726px">{dede:myad name='indexfooterAD'/}</div>
-{dede:include filename="footer.htm"/}
-<!-- /footer -->
 </body>
 </html>

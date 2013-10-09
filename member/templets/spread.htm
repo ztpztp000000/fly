@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{dede:global name='cfg_webname'/}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+
+
+
+
+<script language="JavaScript">
+function CheckLogin(){
+var taget_obj = document.getElementById('_loginform');
+myajax = new DedeAjax(taget_obj,false,false,"","","");
+myajax.SendGet("{dede:global name="cfg_memberurl"/}/ajax_loginsta.php");
+}
+
+  
+</script>
+<style type="text/css">
+ 
+  BODY { background-attachment: scroll; background-image: url(../member/templets/images/bg.jpg)}
+ 
+  #regin {
+   
+
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin: 0 0 0 0;
+    background-image: url(../member/templets/images/bg.jpg)
+
+  }
+</style>
+</head>
+<body>
+<div id="regin">
+  <span id="_reginform">
+  <form name='form2' method='POST' id='regUser' action="reg_new.php">
+    <input type="hidden" name="dopost" value="regbase">
+    <input type="hidden" value="1" name="step"/>
+    <input type="hidden" value="个人" name="mtype"/>
+   
+    <ul>
+    <li>用   户  名 ：<input name="userid" type="text" id="txtUsername" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" style="width:100px;"></li>
+	
+    <li> 密  _  码  ： <input type="password" name="userpwd" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" id="txtPassword" style="width:100px;"></li>
+	<li>确认密码：<input type="password" name="userpwdok" class="regin_input" onfocus="this.className='regin_over'" onblur="this.className='regin_input'" id="userpwdok" style="width:100px;"></li>
+	<li><span>电子邮箱:</span>
+            <input type="text" class="intxt w200" id="email" name="email" style="width:100px;"/>
+    </li>
+	<li><span>验证码：</span>
+            <input type="text" class="intxt w200" style="width: 50px; text-transform: uppercase;" id="vdcode" name="vdcode"/><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>
+		<table border="0">
+			  <tr>
+			  <td><input name="imageField" type="image" src="../member/templets/images/regbt.gif" alt="登录" width="100" height="45" border="0" style=" margin-right:35px; margin-top:3px"></td>
+			  
+			  
+			  </tr>
+		  </table>	
+    </ul>
+  </form>
+  </body>
+</html>

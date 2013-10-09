@@ -1,0 +1,1 @@
+<li>[field:imglink /]<h6><a href='[field:filename/]' target="_blank">[field:title/]</a></h6></li>

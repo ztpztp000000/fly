@@ -8,11 +8,14 @@
  */
 require_once(dirname(__FILE__)."/config.php");
 require_once DEDEINC.'/membermodel.cls.php';
+require_once(DEDEINC."/api.php");
+
 if($cfg_mb_allowreg=='N')
 {
     ShowMsg('系统关闭了新用户注册！', 'index.php');
     exit();
 }
+$mainSiteApi = new MainSiteApi($cfg_api_url, $cfg_site_id, $cfg_site_key);
 
 if(!isset($dopost)) $dopost = '';
 $step = empty($step)? 1 : intval(preg_replace("/[^\d]/", '', $step));
@@ -79,8 +82,10 @@ if($step == 1)
             ShowMsg('你两次输入的密码不一致！', '-1');
             exit();
         }
+
+        // 手动修改为了 uname = userid
+        $uname = HtmlReplace($userid, 1);
         
-        $uname = HtmlReplace($uname, 1);
         //用户笔名重复检测
         if($cfg_mb_wnameone=='N')
         {
@@ -139,6 +144,7 @@ if($step == 1)
                 $ucsynlogin = uc_user_synlogin($uid);
             }
         }
+        
         #/aip}}
         
         if($cfg_md_mailtest=='Y')
@@ -187,7 +193,7 @@ if($step == 1)
         $pwd = md5($userpwd);
         
         $spaceSta = ($cfg_mb_spacesta < 0 ? $cfg_mb_spacesta : 0);
-        
+
         $inQuery = "INSERT INTO `#@__member` (`mtype` ,`userid` ,`pwd` ,`uname` ,`sex` ,`rank` ,`money` ,`email` ,`scores` ,
         `matt`, `spacesta` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` )
        VALUES ('$mtype','$userid','$pwd','$uname','$sex','10','$dfmoney','$email','$dfscores',
@@ -195,6 +201,14 @@ if($step == 1)
         if($dsql->ExecuteNoneQuery($inQuery))
         {
             $mid = $dsql->GetLastID();
+
+            $rsJson = $mainSiteApi->register($userid, trim($userpwd), $email);
+
+            if ($rsJson['ret'] == 0) {
+                $dsql->ExecuteNoneQuery("DELETE FROM `#@__member` WHERE mid=".$mid);
+                ShowMsg($rsJson['msg'], "-1");
+                exit();
+            }
     
             //写入默认会员详细资料
             if($mtype=='个人'){
@@ -206,10 +220,16 @@ if($step == 1)
             }
 
             //写入推广数据
-            $pid=$_COOKIE["pid"];
+            $pid= $_COOKIE["pid"];
+            
+            if (empty($pid)) {
+                $pid = 0;
+            }
+
             $memberspreadquery = "INSERT INTO `#@__member_spread` (`mid`,`pid`)
                    VALUES ('$mid','$pid'); ";
             $dsql->ExecuteNoneQuery($memberspreadquery);
+            DropCookie("pid");
     
             //写入默认统计数据
             $membertjquery = "INSERT INTO `#@__member_tj` (`mid`,`article`,`album`,`archives`,`homecount`,`pagecount`,`feedback`,`friend`,`stow`)
@@ -257,7 +277,7 @@ if($step == 1)
                 $mailbody .= "欢迎注册成为[{$cfg_webname}]的会员。\r\n";
                 $mailbody .= "要通过注册，还必须进行最后一步操作，请点击或复制下面链接到地址栏访问这地址：\r\n\r\n";
                 $mailbody .= "{$url}\r\n\r\n";
-                $mailbody .= "Power by http://www.dedecms.com 织梦内容管理系统！\r\n";
+                $mailbody .= "Power by http://www.777fly.com 内容管理系统！\r\n";
           
                 $headers = "From: ".$cfg_adminemail."\r\nReply-To: ".$cfg_adminemail;
                 if($cfg_sendmail_bysmtp == 'Y' && !empty($cfg_smtp_server))

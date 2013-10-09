@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>充值 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<style type="text/css">
+  .game-title {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 1em;
+  }
+  .game-list li {
+    float: left;
+    margin: 0 10px 20px 0;
+  }
+  .game-list li a img {
+    width: 200px;
+    height: 115px;
+  }
+  .game-list li a {
+    display: block;
+    padding: 5px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+
+  .game-list li a:hover {
+    background-color: #eeeeee;
+  }
+
+  .game-list li a p {
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+
+</style>
+</head>
+<body>
+<div id="main">
+  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
+  <div id="content" class="w960 clearfix">
+    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
+    <div id="mcpmain">
+      <div id="appTab">
+        <ul>
+           <li><a href="game_play.php">游戏中心</a></li>
+        </ul>
+      </div>
+      <div id="mainCp">
+        <h2 class="game-title">选择游戏服务器：</h2>
+        <ul class="game-list">
+          <?php
+            $html = '';
+            foreach ($serverList as $key => $value) {
+              $html .= '<li>
+                <a href="game_play.php?server_id='.$value['id'].'">
+                 
+                  <p><b>'.$value['name'].'</b></p>
+                </a>
+              </li>';
+            }
+            echo $html;
+          ?>
+        </ul>
+        <div style="clear: both;"></div> 
+      </div>
+<!--主操作区域 -->
+    </div>
+  </div>
+<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</div>
+</body>
+</html>

@@ -7,8 +7,11 @@
  * @link           http://www.dedecms.com
  */
 require_once(dirname(__FILE__)."/config.php");
+require_once(DEDEINC."/api.php");
 if(empty($dopost)) $dopost = '';
 if(empty($fmdo)) $fmdo = '';
+
+$mainSiteApi = new MainSiteApi($cfg_api_url, $cfg_site_id, $cfg_site_key);
 
 /*********************
 function check_email()
@@ -119,6 +122,14 @@ else if($fmdo=='user')
                 }
                 exit();
             }
+            
+            if ($mainSiteApi->check_user('username', $uid) == 1) {
+                echo "<font color='#4E7504'><b>√用户名可用</b></font>";
+            } else {
+                echo "<font color='red'><b>×用户名已经存在</b></font>";
+            }
+            exit();
+            
             #/aip}}            
             $msgtitle='用户名';
         }
@@ -160,6 +171,13 @@ else if($fmdo=='user')
             }
             exit();
         }
+
+        if ($mainSiteApi->check_user('email', $email) == 1) {
+            echo "<font color='#4E7504'><b>√可以使用</b></font>";
+        } else {
+            echo "<font color='red'><b>×该 Email 已经被注册！</b></font>";
+        }
+        exit();
         #/aip}}    
         
         if($cfg_md_mailtest=='N')

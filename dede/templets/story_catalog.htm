@@ -70,7 +70,7 @@ foreach($btypes as $k=>$v)
 {
 	  echo "<tr height='24' bgcolor='#FDFEF1'>\r\n";
 	  echo "<td><input type='text' size='2' name='rank_{$k}' value='{$ranks[$k]}'></td>\r\n";
-	  echo "<td style='padding-left:3px'>·{$v} (ID：{$k} ，图书：".TjBookNum($k,$dsql).")</td>\r\n";
+	  echo "<td style='padding-left:3px'>・{$v} (ID：{$k} ，图书：".TjBookNum($k,$dsql).")</td>\r\n";
 	  echo "<td align='right' style='padding-right:8px;'>\r\n";
 	  echo "<a href='javascript:EditCatalog({$k});'>修改</a> | ";
 	  echo "<a href='javascript:DelCatalog({$k});'>删除</a> | ";
@@ -85,7 +85,7 @@ foreach($btypes as $k=>$v)
 	    {
 	    	 echo "<tr height='24'>\r\n";
 		     echo "<td><input type='text' size='2' name='rank_{$kk}' value='{$ranks[$kk]}'></td>\r\n";
-		     echo "<td style='padding-left:18px'>·{$vv} (ID：{$kk}，图书：".TjBookNum($kk,$dsql).")</td>\r\n";
+		     echo "<td style='padding-left:18px'>・{$vv} (ID：{$kk}，图书：".TjBookNum($kk,$dsql).")</td>\r\n";
 		     echo "<td align='right' style='padding-right:8px;'>\r\n";
 		     echo "<a href='javascript:EditCatalog({$kk});'>修改</a> | ";
 		     echo "<a href='javascript:DelCatalog({$kk});'>删除</a> | ";

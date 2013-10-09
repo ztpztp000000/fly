@@ -13,9 +13,13 @@ if(!file_exists(dirname(__FILE__).'/data/common.inc.php'))
 }
 
 if (isset($_GET['tid'])) {
-    setCookie("pid", $_GET['tid'], time() + 3600);
-} else {
-    setCookie("pid", 0, time() + 3600);
+    if (isset($_COOKIE['pid'])) {
+        if ($_COOKIE['pid'] != $_GET['tid']) {
+            setCookie("pid", $_GET['tid'], time() + 3600);
+        }
+    } else {
+        setCookie("pid", $_GET['tid'], time() + 3600);
+    }
 }
 
 //自动生成HTML版
@@ -23,6 +27,12 @@ if(isset($_GET['upcache']) || !file_exists('index.html'))
 {
     require_once (dirname(__FILE__) . "/include/common.inc.php");
     require_once DEDEINC."/arc.partview.class.php";
+    require_once(DEDEINC."/api.php");
+
+    $mainSiteApi = new MainSiteApi($cfg_api_url, $cfg_site_id, $cfg_site_key);
+    $rs = $mainSiteApi->get_new_server();
+    $serverList = $rs['ret'] == 1 ? $rs['server'] : array();
+    
     $GLOBALS['_arclistEnv'] = 'index';
     $row = $dsql->GetOne("Select * From `#@__homepageset`");
     $row['templet'] = MfTemplet($row['templet']);

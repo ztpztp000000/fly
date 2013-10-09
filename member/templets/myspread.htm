@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>我的网站分享 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" language='javascript' src='templets/js/main.js'></script>
+<script type="text/javascript" language="javascript" src="../include/dedeajax2.js"></script>
+<script type="text/javascript" src="templets/js/table_function.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript">
+var reMethod = "<?php echo ($cfg_soft_lang == 'utf-8') ? 'POST' : 'GET';?>";
+var pageno = 1;
+var totalrow = <?php echo $totalRow; ?>;
+var pagesize = <?php echo $pagesize; ?>;
+var selitem = 0;
+//加载列表
+function ReloadPage(){
+	$("#rslist").html("加载中...<br>[<a href=\"javascript:LoadPage('"+pageno+"')\"><u>点击此重新加载列表</u></a>]");	
+	$.ajax({type: reMethod,url: "myspread.php",
+		data: "dopost=getlist&pageno="+pageno,
+		dataType: 'html',
+		success: function(result){$("#rslist").html(result);}
+	});
+}
+//载入指定页的列表
+function LoadPage(npage){
+	pageno = npage;
+	ReloadPage();
+	ReloadPageNum(pageno);
+}
+
+//获得选中文项的ID
+function getCheckboxItem()
+{
+	var allSel="";
+	selitem = 0;
+	if(document.form1.ids.value){
+		selitem++;
+		return document.form1.ids.value;
+	}
+	for(i=0;i<document.form1.ids.length;i++){
+		if(document.form1.ids[i].checked){
+			if(allSel=="") allSel=document.form1.ids[i].value;
+			else allSel=allSel+","+document.form1.ids[i].value;
+			selitem++;
+		}
+	}
+	return allSel;
+}
+</script>
+<style type="text/css">
+	.my-spread-link {
+		padding: 0.5em;
+		border: 1px solid #dddddd;
+		background-color: #f2f2f2;
+		color: #ff0000;
+		font-size: 14px;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+<div id="main">
+  <?php include(DEDEMEMBER."/templets/head.htm"); ?>
+  <div id="content" class="w960 clearfix">
+    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
+    <div id="mcpmain">
+      <div id="appTab">
+        <ul>
+          <li class="thisTab"><a href="#"><span>我的分享</span></a></li>
+        </ul>
+      </div>
+      <div id="mainCp">
+      	  <div class="my-spread-link">我的分享链接：<?php echo $cfg_basehost."?tid=".$cfg_ml->M_ID; ?></div>
+          <?php GetList($dsql,$pageno,$pagesize,'aid'); ?>
+        <div id="pagelist"></div>
+        <!--主操作区域 -->
+      <script type="text/javascript">
+		ReloadPageNum(1);
+	  </script>
+      </div>
+
+    </div>
+  </div>
+<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</div>
+</body>
+</html>

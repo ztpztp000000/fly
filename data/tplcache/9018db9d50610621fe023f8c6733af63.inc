@@ -1,0 +1,1 @@
+<li><span>[field:pubdate function='strftime("%m-%d",@me)'/]</span><a href="[field:filename /]" target="_blank">[field:title/]</a></li>

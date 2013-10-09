@@ -1,0 +1,40 @@
+<?php
+$z[0]=Array("pagestyle","",0,91);
+$z[0][4]['maxwidth']="800";
+$z[0][4]['pagepicnum']="12";
+$z[0][4]['ddmaxwidth']="200";
+$z[0][4]['row']="3";
+$z[0][4]['col']="4";
+$z[0][4]['value']="2";
+$z[1]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42130.jpg ",93,319);
+$z[1][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42130.jpg";
+$z[1][4]['text']="流连忘返的香樟大道";
+$z[1][4]['width']="";
+$z[1][4]['height']="";
+$z[2]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42131.jpg ",321,547);
+$z[2][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42131.jpg";
+$z[2][4]['text']="流连忘返的香樟大道";
+$z[2][4]['width']="";
+$z[2][4]['height']="";
+$z[3]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42132.jpg ",549,775);
+$z[3][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42132.jpg";
+$z[3][4]['text']="流连忘返的香樟大道";
+$z[3][4]['width']="";
+$z[3][4]['height']="";
+$z[4]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42133.jpg ",777,1003);
+$z[4][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42133.jpg";
+$z[4][4]['text']="流连忘返的香樟大道";
+$z[4][4]['width']="";
+$z[4][4]['height']="";
+$z[5]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42134.jpg ",1005,1231);
+$z[5][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42134.jpg";
+$z[5][4]['text']="流连忘返的香樟大道";
+$z[5][4]['width']="";
+$z[5][4]['height']="";
+$z[6]=Array("img"," http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42135.jpg ",1233,1459);
+$z[6][4]['ddimg']="http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42135.jpg";
+$z[6][4]['text']="流连忘返的香樟大道";
+$z[6][4]['width']="";
+$z[6][4]['height']="";
+
+?>
